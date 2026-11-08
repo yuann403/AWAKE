@@ -1,10 +1,4 @@
 <p align="center">
-  <img src="docs/images/logo.png" alt="AWAKE Logo" width="160">
-</p>
-
-<h1 align="center">AWAKE</h1>
-
-<p align="center">
   <img src="docs/images/slogan.png" alt="AWAKE your new life!" width="420">
 </p>
 
@@ -43,14 +37,63 @@ AWAKE 系統分成兩個部分：
 
 ## ✨ App 功能
 
-| 功能 | 說明 |
+<table>
+  <tr>
+    <th nowrap>功能</th>
+    <th>說明</th>
+  </tr>
+  <tr>
+    <td nowrap>🔐 <b>註冊 / 登入</b></td>
+    <td>使用 Firebase Authentication，以 Email 和密碼註冊、登入。</td>
+  </tr>
+  <tr>
+    <td nowrap>📰 <b>最新消息</b></td>
+    <td>首頁上方顯示近期 SDGs、永續發展相關新聞，點選後可連到原始網頁。</td>
+  </tr>
+  <tr>
+    <td nowrap>🌍 <b>SDGs 指標</b></td>
+    <td>瀏覽 SDGs 17 項目標，以及各目標底下的細項目標（Targets）。</td>
+  </tr>
+  <tr>
+    <td nowrap>📚 <b>學習歷程</b></td>
+    <td>依日期記錄每次遊戲結果，以三大面向呈現影響好壞；可查看每個專案題目的影響與解析，以及各場景在遊玩前、中、後的變化。</td>
+  </tr>
+  <tr>
+    <td nowrap>📊 <b>成果分析</b></td>
+    <td>用表情圖示比較「全體總平均」與「個人總平均」在三大面向的表現。</td>
+  </tr>
+  <tr>
+    <td nowrap>👤 <b>個人主頁</b></td>
+    <td>顯示語言、版本、帳號，並提供登出。</td>
+  </tr>
+</table>
+
+## 🛠️ 技術
+
+| 類別 | 使用技術 |
 | --- | --- |
-| 🔐 **註冊 / 登入** | 使用 Firebase Authentication，以 Email 和密碼註冊、登入。 |
-| 📰 **最新消息** | 首頁上方顯示近期 SDGs、永續發展相關新聞，點選後可連到原始網頁。 |
-| 🌍 **SDGs 指標** | 瀏覽 SDGs 17 項目標，以及各目標底下的細項目標（Targets）。 |
-| 📚 **學習歷程** | 依日期記錄每次遊戲結果，以三大面向呈現影響好壞；可查看每個專案題目的影響與解析，以及各場景在遊玩前、中、後的變化。 |
-| 📊 **成果分析** | 用表情圖示比較「全體總平均」與「個人總平均」在三大面向的表現。 |
-| 👤 **個人主頁** | 顯示語言、版本、帳號，並提供登出。 |
+| 語言 | Java 8 |
+| 平台 | Android（minSdk 21、targetSdk 32） |
+| 建置 | Gradle 7.3.3、Android Gradle Plugin 7.2.2 |
+| 後端 | Firebase Authentication、Cloud Firestore、Cloud Storage |
+| 套件 | Material Components、Glide（圖片載入）、Jsoup（新聞擷取）、Volley |
+
+## 🗺️ App 架構
+
+<p align="center">
+  <img src="docs/images/app-architecture.png" alt="App 端系統架構圖" width="700">
+</p>
+
+## Firestore 資料結構
+
+```
+user/{email}                              # 使用者資料
+  └── games/{遊戲紀錄}
+        └── score/...                      # 各專案題目的分數
+question/...                              # 題目與解析
+
+Storage: images/{email}/{遊戲紀錄}/...     # 各場景前、中、後的截圖
+```
 
 ## 📸 畫面截圖
 
@@ -90,33 +133,6 @@ AWAKE 系統分成兩個部分：
   <img src="docs/images/profile.png" alt="個人主頁" width="200">
 </p>
 
-## 🗺️ App 架構
-
-<p align="center">
-  <img src="docs/images/app-architecture.png" alt="App 端系統架構圖" width="700">
-</p>
-
-## 🛠️ 技術
-
-| 類別 | 使用技術 |
-| --- | --- |
-| 語言 | Java 8 |
-| 平台 | Android（minSdk 21、targetSdk 32） |
-| 建置 | Gradle 7.3.3、Android Gradle Plugin 7.2.2 |
-| 後端 | Firebase Authentication、Cloud Firestore、Cloud Storage |
-| 套件 | Material Components、Glide（圖片載入）、Jsoup（新聞擷取）、Volley |
-
-### Firestore 資料結構
-
-```
-user/{email}                              # 使用者資料
-  └── games/{遊戲紀錄}
-        └── score/...                      # 各專案題目的分數
-question/...                              # 題目與解析
-
-Storage: images/{email}/{遊戲紀錄}/...     # 各場景前、中、後的截圖
-```
-
 ## 🚀 建置與執行
 
 1. 安裝 [Android Studio](https://developer.android.com/studio)，並安裝 Android SDK 32。
@@ -150,8 +166,6 @@ Storage: images/{email}/{遊戲紀錄}/...     # 各場景前、中、後的截�
 - **跨平台**：開發 iOS 版本。
 - **進入校園**：成為中小學 SDGs 教材。
 
----
-
 <p align="center">
-  <sub>本專案為淡江大學資訊管理學系畢業專題 / 大專生研究計畫成果。SDGs 圖示版權屬於聯合國。</sub>
+  <sub>本專案為淡江大學資訊管理學系畢業專題 / 大專生研究計畫成果。</sub>
 </p>
