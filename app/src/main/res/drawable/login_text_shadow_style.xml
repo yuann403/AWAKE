@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--第一層陰影-->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient android:angle="90" android:startColor="#21000000"
+                android:endColor="#E5E5E5"/>
+            <corners android:radius="39dip"
+                android:topLeftRadius="39dip"
+                android:topRightRadius="39dip"
+                android:bottomLeftRadius="39dip"
+                android:bottomRightRadius="39dip" />
+            <!-- 大小 -->
+            <size
+                android:width="300dp"
+                android:height="45dp"/><!-- 寬度和高度 -->
+        </shape>
+    </item>
+    <!--第二層前景-->
+    <item
+        android:bottom="2dp"
+        android:right="2dp"
+        android:drawable="@drawable/login_text_style"
+        >
+    </item>
+</layer-list>
